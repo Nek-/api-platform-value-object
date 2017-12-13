@@ -20,3 +20,16 @@ In the docker :
 ```bash
 composer install
 ```
+
+
+Issue
+-----
+
+The following call generates an unexpected error.
+
+- 400 is the good result code
+- "Cannot create an instance of App\\Entity\\Address from serialized data because its constructor requires parameter \"line1\" to be present." is not an acceptable error to return to the user of the API
+
+```
+curl -X POST "http://localhost:8000/api/users" -H "accept: application/ld+json" -H "Content-Type: application/ld+json" -d "{ \"name\": \"string\", \"address\": \"string\"}"
+```
